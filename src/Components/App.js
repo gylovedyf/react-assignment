@@ -1,68 +1,84 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import RecommendList from './RecommendList/RecommendList';
-import MyList from './MyList/MyList';
+import { connect } from 'react-redux';
 import { removeFromMyList, addFromRecommendList, getMovieList } from '../Actions/index'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-    this.myListTitle = this.myListTitle.bind(this);
   }
 
-  componentDidMount(){
+  // Component Init
+  componentDidMount() {
+    // axios.get(URL)
+    //   .then(res => {
+    //     this.setState({ posts });
+    // });
     this.props.getMovieList();
   }
 
-  myListTitle(list) {
-    const titles = [];
-    list.length===0 ? 
-    titles.push(<div className="no-data" key="empty">No Item! </div>) : 
-    list.map((comp,index) => {
-      return titles.push(<div className='my-list-title' key={index}>{comp.title}</div>)
-    })
-      return titles;  
-  }
-
   render() {
-    const listTitle = this.myListTitle(this.props.mylist);
+    // render myList 
+    const myList = this.props.mylist.map((comp, index) => {
+      return (
+        <div className='showing-block'>
+          <p>{comp.title}</p>
+          <img src={comp.img} alt={comp.title} />
+          <button onClick={() => this.props.removeFromMyList(comp.id)} className='block-button'>Remove</button>
+        </div>
+      )
+    });
+
+    // render recommendList
+    const recommendList = this.props.recommendations.map((comp, index) => {
+      return (
+        <div className='showing-block'>
+          <p>{comp.title}</p>
+          <img src={comp.img} alt={comp.title} />
+          <button onClick={() => this.props.addFromRecommendList(comp.id)} className='block-button'>Add</button>
+        </div>
+      );
+    });
+
     return (
       <div className="app">
         <p className="header">NETFLIX PAGE</p>
-        <MyList
-          MyList={this.props.mylist}
-          removeFromMyList={this.props.removeFromMyList} />
-
-        <RecommendList
-          RecommendList={this.props.recommendations}
-          addFromRecommendList={this.props.addFromRecommendList} />
+        <div className='list-wrapper'>
+          <h2>My List</h2>
+          <div className='list-view my-list'>
+            {myList}
+          </div>
+        </div>
+        <div className='list-wrapper'>
+          <h2>Recommend List</h2>
+          <div className='list-view recommend-list'>
+            {recommendList}
+          </div>
+        </div>
       </div>
-
-        
-    );
+    )
   }
 }
 
-function mapStateToProps(state){
+//conect necessary state
+function mapStateToProps(state) {
   return {
     mylist: state.mylist,
     recommendations: state.recommendations
   }
 }
 //connect necessary actions
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
   return {
-    getMovieList:()=>{
+    getMovieList: () => {
       dispatch(getMovieList())
     },
-    removeFromMyList:(id)=>{
+    removeFromMyList: (id) => {
       dispatch(removeFromMyList(id))
     },
-    addFromRecommendList:(id)=>{
+    addFromRecommendList: (id) => {
       dispatch(addFromRecommendList(id))
     }
   }
 }
-
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

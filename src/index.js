@@ -8,6 +8,7 @@ import { createLogger } from 'redux-logger';
 import './index.css';
 import App from './Components/App';
 
+
 const store = createStore(reducer, applyMiddleware(thunk,createLogger()));
 
 ReactDOM.render(

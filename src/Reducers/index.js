@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {GET_INITIAL_STATE, REMOVE_FROM_MYLIST, ADD_FROM_RECOMMENDLIST} from '../Actiontypes';
+import {GET_INITIAL_STATE, REMOVE_FROM_MYLIST, ADD_FROM_RECOMMENDLIST} from '../Actions/Actiontypes';
 
 const mylist = (state=[],action)=>{
     switch(action.type){

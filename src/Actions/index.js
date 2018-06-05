@@ -1,11 +1,12 @@
 import _ from 'lodash';
-import data from '../Data/Data.json';
-import {GET_INITIAL_STATE, REMOVE_FROM_MYLIST, ADD_FROM_RECOMMENDLIST} from '../Actiontypes';
+import data from '../Data.json';
+
+import {GET_INITIAL_STATE, REMOVE_FROM_MYLIST, ADD_FROM_RECOMMENDLIST} from './Actiontypes';
 
 
 export function getMovieList(){
     return function(dispatch,getState){
-        const curState = data ;
+        const curState = data;
         dispatch({
             type: GET_INITIAL_STATE,
             data: curState
