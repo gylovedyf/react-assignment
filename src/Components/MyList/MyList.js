@@ -1,5 +1,6 @@
 import React from 'react';
-import MyListBlock from '../MyListBlock/MyListBlock';
+// import MyListBlock from '../MyListBlock/MyListBlock';
+import ListBlock from '../ListBlock/ListBlock';
 import './MyList.css';
 
 class MyList extends React.Component {
@@ -7,15 +8,18 @@ class MyList extends React.Component {
         super(props);
         this.renderMyListBLock = this.renderMyListBLock.bind(this);
     }
+    
 
     renderMyListBLock(list) {
-        return list.length === 0 ?
-            <div className="showing-block">
-                <p className="no-data">Make<br />Your<br />List</p>
-            </div>:
-            list.map((comp,index) => {
-                return <MyListBlock key={index} MyListBlock={comp} {...this.props}/> 
-            })
+        return list.map((comp,index) => {
+            return (
+            <ListBlock key={index} 
+                img={comp.img}
+                title={comp.title}
+                btn={"Remove"}
+                id={comp.id}
+                blockHandler={this.props.removeFromMyList}/>
+        )})
     }
 
     render() {
@@ -23,7 +27,7 @@ class MyList extends React.Component {
         return(
             <div className='list-wrapper'>
                 <h2>My List</h2>
-                <div className='list-view'>
+                <div className='list-view my-list'>
                     {renderList}
                 </div>
             </div>

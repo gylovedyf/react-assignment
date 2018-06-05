@@ -39,7 +39,7 @@ h2 {
     visibility: hidden;
 }
 
-.list-view .showing-block:hover .block-button{
+.my-list .showing-block:hover .block-button{
     visibility: visible;
     color: white;
     height:25px;
@@ -50,12 +50,34 @@ h2 {
     box-shadow:0 0 5px white;
 }
 
-.list-view .showing-block:hover .block-button:hover{
+.my-list .showing-block:hover .block-button:hover{
     visibility: visible;
     color: white;
     height:25px;
     width:100%;
     background-color:rgb(244,6,18);
+    border-radius:3px;
+    border:none;
+    box-shadow:0 0 5px white;
+}
+
+.recommend-list .showing-block:hover .block-button{
+    visibility: visible;
+    color: white;
+    height:25px;
+    width:100%;
+    background-color:green;
+    border-radius: 3px;
+    border:none;
+    box-shadow:0 0 5px white;
+}
+
+.recommend-list .showing-block:hover .block-button:hover{
+    visibility: visible;
+    color: white;
+    height:25px;
+    width:100%;
+    background-color:green;
     border-radius:3px;
     border:none;
     box-shadow:0 0 5px white;
