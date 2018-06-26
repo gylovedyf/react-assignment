@@ -42,7 +42,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <p className="header">NETFLIX PAGE</p>
+        <p className="header">Master branch</p>
         <div className='list-wrapper'>
           <h2>My List</h2>
           <div className='list-view my-list'>
