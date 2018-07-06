@@ -42,7 +42,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <h3 className="header">In Testing Branch</h3>
+        <h3 className="header">I am in Testing Branch</h3>
         <div className='list-wrapper'>
           <h2>My List</h2>
           <div className='list-view my-list'>
