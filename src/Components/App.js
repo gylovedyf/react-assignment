@@ -42,12 +42,8 @@ class App extends Component {
 
     return (
       <div className="app">
-<<<<<<< HEAD
         <p className="header">Master branch</p>
         <h1>I am in Master Branch</h1>
-=======
-        <h3 className="header">I am in Testing Branch</h3>
->>>>>>> testing
         <div className='list-wrapper'>
           <h2>My List</h2>
           <div className='list-view my-list'>
