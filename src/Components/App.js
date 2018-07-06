@@ -43,6 +43,7 @@ class App extends Component {
     return (
       <div className="app">
         <p className="header">Master branch</p>
+        <h1>I am in Master Branch</h1>
         <div className='list-wrapper'>
           <h2>My List</h2>
           <div className='list-view my-list'>
